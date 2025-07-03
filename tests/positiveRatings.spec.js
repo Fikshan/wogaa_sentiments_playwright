@@ -207,14 +207,12 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
     }
   });
 
-  // Cleanup after each test
   test.afterEach(async ({ page }, testInfo) => {
     console.log(
       `Test "${testInfo.title}" completed with status: ${testInfo.status}`
     );
 
     if (testInfo.status === "failed") {
-      // Take screenshot on failure
       await page.screenshot({
         path: `allure-results/positive-rating-failure-${Date.now()}.png`,
         fullPage: true,

@@ -4,55 +4,48 @@ import BasePage from "./BasePage.js";
 let basepage;
 
 export default class TellUsMorePage {
-  constructor(page) {
+constructor(page) {
     if (!page) throw new Error("Playwright driver is not configured");
     this.page = page;
     basepage = new BasePage(page);
-  }
+}
 
-  async click(locator) {
+async click(locator) {
     await this.page.locator(locator).click();
-  }
+}
 
-  async fill(locator, text) {
+async fill(locator, text) {
     await this.page.locator(locator).fill(text);
-  }
+}
 
-  async clickButtonByRoleAndName(buttonText) {
+async clickButtonByRoleAndName(buttonText) {
     await this.page
       .getByRole("button", { name: buttonText, exact: true })
       .click();
-  }
+}
 
-  async verifyFeedbackFormQuestions() {
-    // 1. Verify "Which areas contributed to your rating today?" (Required)
+async verifyFeedbackFormQuestions() {
     await expect(this.page.getByText("Which areas contributed to your rating today?")).toBeVisible();
     await expect(this.page.getByText("Select all that apply")).toBeVisible();
     await expect(this.page.getByText("Which are you interested in?")).toBeVisible();
     await expect(this.page.getByText("What did you like least?")).toBeVisible();
     await expect(this.page.getByText("Your email")).toBeVisible();
     await this.page.waitForTimeout(100);
-  }
-
-async  interactWithFeedbackForm() {
-       
-        await this.page.getByText('Technical errors').click();
-        await this.page.getByText('Difficult to navigate').click();
-      
-        await this.page.getByText('Informational Services').click();
-        
-        // Fill in the text area
-        await this.page.getByPlaceholder('Type your reply here').fill('The website needs improvement in navigation and loading speed.');
-        
-        // Fill in email (optional)
-        await this.page.getByPlaceholder('Type your email here').fill('test@example.com');
-        
-        // Verify that form accepts the input
-        await expect(this.page.getByPlaceholder('Type your reply here')).toHaveValue('The website needs improvement in navigation and loading speed.');
-        await expect(this.page.getByPlaceholder('Type your email here')).toHaveValue('test@example.com');
 }
 
-async  verifyFormElements() {
+async interactWithFeedbackForm() {
+       
+    await this.page.getByText('Technical errors').click();
+    await this.page.getByText('Difficult to navigate').click();
+      
+    await this.page.getByText('Informational Services').click();
+    await this.page.getByPlaceholder('Type your reply here').fill('The website needs improvement in navigation and loading speed.');
+    await this.page.getByPlaceholder('Type your email here').fill('test@example.com');
+    await expect(this.page.getByPlaceholder('Type your reply here')).toHaveValue('The website needs improvement in navigation and loading speed.');
+    await expect(this.page.getByPlaceholder('Type your email here')).toHaveValue('test@example.com');
+}
+
+async verifyFormElements() {
             const contributingAreas = [
                 'Technical errors',
                 'Couldn\'t find content',
@@ -274,41 +267,6 @@ async verifyPositiveFormAnswerElements() {
     await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
 }
 
-async fillPositiveFeedbackFormWithValidData() {
-  await this.selectPositiveContributionAreas();
-  
-  // Fill optional textarea with valid content (under 255 characters)
-  await this.page.locator('textarea[placeholder*="Type your reply here"]').fill('Excellent website with great functionality and user experience.');
-  
-  // Fill valid email
-  await this.page.locator('input[type="email"]').fill('valid.email@example.com');
-  
-  // Select optional interests
-  await this.page.locator('text="Informational Services"').click();
-}
-/**
- * Fill valid feedback text (under 255 characters)
- * @param {string} text - The text to enter (default: short valid text)
- */
-async fillValidFeedbackText(text = 'This is a valid feedback message that is under 255 characters.') {
-    await this.page.getByPlaceholder('Type your reply here').fill(text);
-}
-
-/**
- * Fill valid email
- * @param {string} email - The valid email to enter (default: 'test@example.com')
- */
-async fillValidEmail(email = 'test@example.com') {
-    await this.page.getByPlaceholder('Type your email here').fill(email);
-}
-
-/**
- * Clear all form fields
- */
-async clearAllFields() {
-    await this.page.getByPlaceholder('Type your reply here').clear();
-    await this.page.getByPlaceholder('Type your email here').clear();
-}
     
     
 }

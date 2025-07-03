@@ -3,9 +3,6 @@
 // This file configures Playwright for testing the Wogaa website.
 // It sets the test directory, timeout, base URL, and browser settings for both desktop and mobile environments.
 // It also specifies the use of headless mode, screenshot capture on failure, and video recording   
-//require('dotenv').config();
-// require('dotenv').config({ path: `.env.${process.env.ENV || 'qa'}` });
-// const { defineConfig, devices } = require('@playwright/test');
 
 
 import dotenv from 'dotenv';
@@ -28,8 +25,8 @@ export default defineConfig({
   use: {
     //baseURL: process.env.URL,
     headless: false,
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    screenshot: 'off',
+    video: 'off',
   },
   projects: [
     {
