@@ -1,4 +1,4 @@
-# WOGAA Sentiments Widget - Playwright Testing
+# WOGAA Sentiments Widget - Playwright Testing Framework
 
 ## Overview
 
