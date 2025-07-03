@@ -167,7 +167,7 @@ test.describe('WOGAA Sentiments Rating Widget', () => {
         if (testInfo.status === 'failed') {
             // Take screenshot on failure
             await page.screenshot({ 
-                path: `test-results/failure-${Date.now()}.png`, 
+                path: `allure-results/failure-${Date.now()}.png`, 
                 fullPage: true 
             });
         }

@@ -216,7 +216,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
     if (testInfo.status === "failed") {
       // Take screenshot on failure
       await page.screenshot({
-        path: `test-results/positive-rating-failure-${Date.now()}.png`,
+        path: `allure-results/positive-rating-failure-${Date.now()}.png`,
         fullPage: true,
       });
     }

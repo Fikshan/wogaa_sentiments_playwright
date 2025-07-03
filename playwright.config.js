@@ -23,7 +23,7 @@ export default defineConfig({
   testIgnore: '**/node_modules/**',
   retries: 1,
   workers: 2, // Use 2 CPU cores
-  reporter:[['html'],['allure-playwright',{ outputFolder: 'allure-results' }]],
+  reporter:[['allure-playwright',{ outputFolder: 'allure-results' }]],
   timeout: 30000,
   use: {
     //baseURL: process.env.URL,
