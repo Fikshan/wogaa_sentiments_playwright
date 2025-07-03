@@ -1,0 +1,8 @@
+node_modules/
+playwright-report/
+test-results/
+.env
+storage/
+.vscode/
+# Ignore Playwright's default test results and reports
+# This will prevent these directories from being tracked by Git
