@@ -1,0 +1,2 @@
+Loaded URL from env: https://beta-docs.wogaa.cloud/
+Test "should keep submit button disabled when only optional checkboxes selected for rating 1" completed with status: passed

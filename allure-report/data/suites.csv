@@ -1,177 +1,13 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "
-            This test validates that the WOGAA Documentation website loads correctly.
-            
-            Test Steps:
-            1. Launch the WOGAA Documentation website
-            2. Verify the page title is correct
-        ","10614","should load WOGAA homepage successfully","Desktop Chrome","Thu Jul 03 12:31:49 IST 2025","passed","Thu Jul 03 12:32:00 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
-"
-      This test validates that validation errors appear and submit button is disabled 
-      when both text exceeds 255 characters and email is invalid for rating 1.
-      
-      Test Steps:
-      1. Open rating widget and select rating ""1""
-      2. Enter text exceeding 255 characters in feedback textarea
-      3. Enter invalid email address
-      4. Verify character count validation message appears
-      5. Verify email validation message appears
-      6. Verify submit button is disabled
-  ","13680","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 1","Desktop Chrome","Thu Jul 03 12:32:15 IST 2025","passed","Thu Jul 03 12:32:28 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates user interactions with the feedback form for rating 5.
-                
-                Test Steps:
-                1. Open rating widget and select rating ""5""
-                2. Interact with ""Which areas contributed to your rating today?"" checkboxes (positive options)
-                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
-                4. Fill in ""What did you like most?"" text area (Optional)
-                5. Fill in email field (Optional)
-                6. Verify form can be closed
-            ","7911","should allow user to interact with feedback form for rating 5","Desktop Chrome","Thu Jul 03 12:32:43 IST 2025","passed","Thu Jul 03 12:32:51 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-      This test validates that validation errors appear and submit button is disabled 
-      when both text exceeds 255 characters and email is invalid for rating 3.
-      
-      Test Steps:
-      1. Open rating widget and select rating ""3""
-      2. Enter text exceeding 255 characters in feedback textarea
-      3. Enter invalid email address
-      4. Verify character count validation message appears
-      5. Verify email validation message appears
-      6. Verify submit button is disabled
-  ","12283","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 3","Desktop Chrome","Thu Jul 03 12:33:32 IST 2025","passed","Thu Jul 03 12:33:44 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates the feedback form for positive rating 6.
-                
-                Test Steps:
-                1. Open the rating widget
-                2. Select rating ""6""
-                3. Verify ""Tell us more"" heading appears
-                4. Verify all required form questions are displayed:
-                   - ""Which areas contributed to your rating today?"" (Required) - with positive options
-                   - ""Which are you interested in?"" (Optional)
-                   - ""What did you like most?"" (Optional)
-                   - ""Your email"" (Optional)
-                5. Verify form answer elements are properly displayed
-            ","5382","should display correct feedback form for rating 6","Desktop Chrome","Thu Jul 03 12:33:09 IST 2025","passed","Thu Jul 03 12:33:14 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-                This test validates user interactions with the feedback form for rating 4.
-                
-                Test Steps:
-                1. Open rating widget and select rating ""4""
-                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
-                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
-                4. Fill in ""What did you like least?"" text area (Optional)
-                5. Fill in email field (Optional)
-                6. Verify form can be closed
-            ","7180","should allow user to interact with feedback form for rating 4","Desktop Chrome","Thu Jul 03 12:33:57 IST 2025","passed","Thu Jul 03 12:34:04 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates the feedback form for negative rating 2.
-                
-                Test Steps:
-                1. Open the rating widget
-                2. Select rating ""2""
-                3. Verify ""Tell us more"" heading appears
-                4. Verify all required form questions are displayed:
-                   - ""Which areas contributed to your rating today?"" (Required)
-                   - ""Which are you interested in?"" (Optional)
-                   - ""What did you like least?"" (Optional)
-                   - ""Your email"" (Optional)
-                5. Verify form elements are properly displayed
-            ","5665","should display correct feedback form for rating 2","Desktop Chrome","Thu Jul 03 12:32:35 IST 2025","passed","Thu Jul 03 12:32:40 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-      This test validates that validation errors appear and submit button is disabled 
-      when both text exceeds 255 characters and email is invalid for rating 2.
-      
-      Test Steps:
-      1. Open rating widget and select rating ""2""
-      2. Enter text exceeding 255 characters in feedback textarea
-      3. Enter invalid email address
-      4. Verify character count validation message appears
-      5. Verify email validation message appears
-      6. Verify submit button is disabled
-  ","14005","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 2","Desktop Chrome","Thu Jul 03 12:32:49 IST 2025","passed","Thu Jul 03 12:33:03 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-            This test validates that the feedback form structure is consistent across all negative ratings.
-            
-            Test Steps:
-            1. Test each rating from 1 to 4
-            2. Verify that the same form questions appear for all negative ratings
-            3. Ensure consistent form structure and elements
-            4. Submit the form after each rating to prepare for the next
-            5. Verify the thank you message after submission
-        ","16378","should submit the feedback form across all negative ratings","Desktop Chrome","Thu Jul 03 12:34:17 IST 2025","passed","Thu Jul 03 12:34:33 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 6.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""6""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","6220","should keep submit button disabled when only optional checkboxes selected for rating 6","Desktop Chrome","Thu Jul 03 12:33:33 IST 2025","passed","Thu Jul 03 12:33:39 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-      This test validates that validation errors appear and submit button is disabled 
-      when both text exceeds 255 characters and email is invalid for rating 5.
-      
-      Test Steps:
-      1. Open rating widget and select rating ""5""
-      2. Enter text exceeding 255 characters in feedback textarea
-      3. Enter invalid email address
-      4. Verify character count validation message appears
-      5. Verify email validation message appears
-      6. Verify submit button is disabled
-  ","13262","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 5","Desktop Chrome","Thu Jul 03 12:32:51 IST 2025","passed","Thu Jul 03 12:33:04 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-            This test validates that the sentiment rating widget appears correctly.
-            
-            Test Steps:
-            1. Click on the 'Help us improve' ribbon button
-            2. Verify the rating widget opens
-            3. Verify the prompt heading: ""Rate your experience with this website""
-            4. Verify all six rating buttons (1 to 6) are visible
-            5. Confirm the satisfaction scale labels: ""NOT SATISFIED"" and ""VERY SATISFIED""
-        ","5593","should display rating widget when Help us improve is clicked","Desktop Chrome","Thu Jul 03 12:32:02 IST 2025","passed","Thu Jul 03 12:32:08 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
-"
-            This test validates the rating popup can be closed properly.
+            This test validates the feedback flow for negative ratings.
             
             Test Steps:
             1. Open the rating widget
-            2. Click the close button
-            3. Verify the popup is closed
-            4. Confirm the rating heading is no longer visible
-        ","7319","should close rating popup when close button is clicked","Desktop Chrome","Thu Jul 03 12:32:08 IST 2025","passed","Thu Jul 03 12:32:15 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
-"
-                This test validates user interactions with the feedback form for rating 1.
-                
-                Test Steps:
-                1. Open rating widget and select rating ""1""
-                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
-                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
-                4. Fill in ""What did you like least?"" text area (Optional)
-                5. Fill in email field (Optional)
-                6. Verify form can be closed
-            ","11146","should allow user to interact with feedback form for rating 1","Desktop Chrome","Thu Jul 03 12:32:04 IST 2025","passed","Thu Jul 03 12:32:15 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates the feedback form for positive rating 5.
-                
-                Test Steps:
-                1. Open the rating widget
-                2. Select rating ""5""
-                3. Verify ""Tell us more"" heading appears
-                4. Verify all required form questions are displayed:
-                   - ""Which areas contributed to your rating today?"" (Required) - with positive options
-                   - ""Which are you interested in?"" (Optional)
-                   - ""What did you like most?"" (Optional)
-                   - ""Your email"" (Optional)
-                5. Verify form answer elements are properly displayed
-            ","5020","should display correct feedback form for rating 5","Desktop Chrome","Thu Jul 03 12:32:38 IST 2025","passed","Thu Jul 03 12:32:43 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+            2. Select rating ""1"" (lowest rating)
+            3. Verify the follow-up feedback prompt appears
+            4. Verify heading: ""Tell us more""
+        ","5440","should show feedback form when rating 1 is selected","Desktop Chrome","Fri Jul 04 12:20:08 IST 2025","passed","Fri Jul 04 12:20:13 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
 "
                 This test validates user interactions with the feedback form for rating 3.
                 
@@ -182,60 +18,7 @@
                 4. Fill in ""What did you like least?"" text area (Optional)
                 5. Fill in email field (Optional)
                 6. Verify form can be closed
-            ","14076","should allow user to interact with feedback form for rating 3","Desktop Chrome","Thu Jul 03 12:33:17 IST 2025","passed","Thu Jul 03 12:33:32 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 4.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""4""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","5054","should keep submit button disabled when only optional checkboxes selected for rating 4","Desktop Chrome","Thu Jul 03 12:34:12 IST 2025","passed","Thu Jul 03 12:34:17 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 1.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""1""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","6206","should keep submit button disabled when only optional checkboxes selected for rating 1","Desktop Chrome","Thu Jul 03 12:32:28 IST 2025","passed","Thu Jul 03 12:32:35 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 3.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""3""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","8915","should keep submit button disabled when only optional checkboxes selected for rating 3","Desktop Chrome","Thu Jul 03 12:33:44 IST 2025","passed","Thu Jul 03 12:33:53 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates user interactions with the feedback form for rating 6.
-                
-                Test Steps:
-                1. Open rating widget and select rating ""6""
-                2. Interact with ""Which areas contributed to your rating today?"" checkboxes (positive options)
-                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
-                4. Fill in ""What did you like most?"" text area (Optional)
-                5. Fill in email field (Optional)
-                6. Verify form can be closed
-            ","7822","should allow user to interact with feedback form for rating 6","Desktop Chrome","Thu Jul 03 12:33:15 IST 2025","passed","Thu Jul 03 12:33:22 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+            ","6839","should allow user to interact with feedback form for rating 3","Desktop Chrome","Fri Jul 04 12:21:32 IST 2025","passed","Fri Jul 04 12:21:39 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
 "
       This test validates that validation errors appear and submit button is disabled 
       when both text exceeds 255 characters and email is invalid for rating 4.
@@ -247,91 +30,7 @@
       4. Verify character count validation message appears
       5. Verify email validation message appears
       6. Verify submit button is disabled
-  ","7767","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 4","Desktop Chrome","Thu Jul 03 12:34:04 IST 2025","passed","Thu Jul 03 12:34:12 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-      This test validates that validation errors appear and submit button is disabled 
-      when both text exceeds 255 characters and email is invalid for rating 6.
-      
-      Test Steps:
-      1. Open rating widget and select rating ""6""
-      2. Enter text exceeding 255 characters in feedback textarea
-      3. Enter invalid email address
-      4. Verify character count validation message appears
-      5. Verify email validation message appears
-      6. Verify submit button is disabled
-  ","10852","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 6","Desktop Chrome","Thu Jul 03 12:33:22 IST 2025","passed","Thu Jul 03 12:33:33 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-                This test validates user interactions with the feedback form for rating 2.
-                
-                Test Steps:
-                1. Open rating widget and select rating ""2""
-                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
-                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
-                4. Fill in ""What did you like least?"" text area (Optional)
-                5. Fill in email field (Optional)
-                6. Verify form can be closed
-            ","8471","should allow user to interact with feedback form for rating 2","Desktop Chrome","Thu Jul 03 12:32:40 IST 2025","passed","Thu Jul 03 12:32:49 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-                This test validates the feedback form for negative rating 3.
-                
-                Test Steps:
-                1. Open the rating widget
-                2. Select rating ""3""
-                3. Verify ""Tell us more"" heading appears
-                4. Verify all required form questions are displayed:
-                   - ""Which areas contributed to your rating today?"" (Required)
-                   - ""Which are you interested in?"" (Optional)
-                   - ""What did you like least?"" (Optional)
-                   - ""Your email"" (Optional)
-                5. Verify form elements are properly displayed
-            ","6276","should display correct feedback form for rating 3","Desktop Chrome","Thu Jul 03 12:33:11 IST 2025","passed","Thu Jul 03 12:33:17 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 2.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""2""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","8294","should keep submit button disabled when only optional checkboxes selected for rating 2","Desktop Chrome","Thu Jul 03 12:33:03 IST 2025","passed","Thu Jul 03 12:33:11 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
-"
-            This test validates the feedback flow for negative ratings.
-            
-            Test Steps:
-            1. Open the rating widget
-            2. Select rating ""1"" (lowest rating)
-            3. Verify the follow-up feedback prompt appears
-            4. Verify heading: ""Tell us more""
-        ","10152","should show feedback form when rating 1 is selected","Desktop Chrome","Thu Jul 03 12:32:15 IST 2025","passed","Thu Jul 03 12:32:25 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
-"
-        This test ensures that selecting only the optional checkboxes under 
-        ""Which are you interested in?"" does NOT enable the submit button 
-        for rating 5.
-        
-        Test Steps:
-        1. Open the rating widget and select rating ""5""
-        2. Select all three optional checkboxes:
-           - Informational Services
-           - Transactional Services
-           - Mobile Applications
-        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
-        4. Verify the submit button remains disabled
-      ","4812","should keep submit button disabled when only optional checkboxes selected for rating 5","Desktop Chrome","Thu Jul 03 12:33:04 IST 2025","passed","Thu Jul 03 12:33:09 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
-"
-            This test validates that the feedback form structure is consistent across all positive ratings.
-            
-            Test Steps:
-            1. Test each rating from 5 to 6
-            2. Verify that the same form questions appear for all positive ratings
-            3. Ensure consistent form structure and elements
-            4. Submit the form after each rating to prepare for the next
-            5. Verify the thank you message after submission
-        ","12920","should submit the feedback form across all positive ratings","Desktop Chrome","Thu Jul 03 12:33:39 IST 2025","passed","Thu Jul 03 12:33:52 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+  ","7796","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 4","Desktop Chrome","Fri Jul 04 12:22:02 IST 2025","passed","Fri Jul 04 12:22:10 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
 "
                 This test validates the feedback form for negative rating 1.
                 
@@ -345,7 +44,97 @@
                    - ""What did you like least?"" (Optional)
                    - ""Your email"" (Optional)
                 5. Verify form elements are properly displayed
-            ","11822","should display correct feedback form for rating 1","Desktop Chrome","Thu Jul 03 12:31:49 IST 2025","passed","Thu Jul 03 12:32:01 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+            ","8367","should display correct feedback form for rating 1","Desktop Chrome","Fri Jul 04 12:19:51 IST 2025","passed","Fri Jul 04 12:19:59 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+                This test validates user interactions with the feedback form for rating 4.
+                
+                Test Steps:
+                1. Open rating widget and select rating ""4""
+                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
+                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
+                4. Fill in ""What did you like least?"" text area (Optional)
+                5. Fill in email field (Optional)
+                6. Verify form can be closed
+            ","7068","should allow user to interact with feedback form for rating 4","Desktop Chrome","Fri Jul 04 12:21:55 IST 2025","passed","Fri Jul 04 12:22:02 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 2.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""2""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","5753","should keep submit button disabled when only optional checkboxes selected for rating 2","Desktop Chrome","Fri Jul 04 12:21:22 IST 2025","passed","Fri Jul 04 12:21:27 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 6.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""6""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","4766","should keep submit button disabled when only optional checkboxes selected for rating 6","Desktop Chrome","Fri Jul 04 12:21:14 IST 2025","passed","Fri Jul 04 12:21:19 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+                This test validates the feedback form for negative rating 3.
+                
+                Test Steps:
+                1. Open the rating widget
+                2. Select rating ""3""
+                3. Verify ""Tell us more"" heading appears
+                4. Verify all required form questions are displayed:
+                   - ""Which areas contributed to your rating today?"" (Required)
+                   - ""Which are you interested in?"" (Optional)
+                   - ""What did you like least?"" (Optional)
+                   - ""Your email"" (Optional)
+                5. Verify form elements are properly displayed
+            ","4434","should display correct feedback form for rating 3","Desktop Chrome","Fri Jul 04 12:21:27 IST 2025","passed","Fri Jul 04 12:21:32 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+                This test validates user interactions with the feedback form for rating 6.
+                
+                Test Steps:
+                1. Open rating widget and select rating ""6""
+                2. Interact with ""Which areas contributed to your rating today?"" checkboxes (positive options)
+                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
+                4. Fill in ""What did you like most?"" text area (Optional)
+                5. Fill in email field (Optional)
+                6. Verify form can be closed
+            ","7170","should allow user to interact with feedback form for rating 6","Desktop Chrome","Fri Jul 04 12:20:57 IST 2025","passed","Fri Jul 04 12:21:05 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+      This test validates that validation errors appear and submit button is disabled 
+      when both text exceeds 255 characters and email is invalid for rating 5.
+      
+      Test Steps:
+      1. Open rating widget and select rating ""5""
+      2. Enter text exceeding 255 characters in feedback textarea
+      3. Enter invalid email address
+      4. Verify character count validation message appears
+      5. Verify email validation message appears
+      6. Verify submit button is disabled
+  ","10806","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 5","Desktop Chrome","Fri Jul 04 12:20:34 IST 2025","passed","Fri Jul 04 12:20:45 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 1.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""1""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","5778","should keep submit button disabled when only optional checkboxes selected for rating 1","Desktop Chrome","Fri Jul 04 12:20:55 IST 2025","passed","Fri Jul 04 12:21:01 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
 "
             This test validates the feedback flow for positive ratings.
             
@@ -354,7 +143,89 @@
             2. Select rating ""6"" (highest rating)
             3. Verify the follow-up feedback prompt appears
             4. Verify heading: ""Tell us more""
-        ","5286","should show feedback form when rating 6 is selected","Desktop Chrome","Thu Jul 03 12:32:25 IST 2025","passed","Thu Jul 03 12:32:31 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+        ","3549","should show feedback form when rating 6 is selected","Desktop Chrome","Fri Jul 04 12:20:13 IST 2025","passed","Fri Jul 04 12:20:17 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+"
+                This test validates user interactions with the feedback form for rating 2.
+                
+                Test Steps:
+                1. Open rating widget and select rating ""2""
+                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
+                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
+                4. Fill in ""What did you like least?"" text area (Optional)
+                5. Fill in email field (Optional)
+                6. Verify form can be closed
+            ","7405","should allow user to interact with feedback form for rating 2","Desktop Chrome","Fri Jul 04 12:21:05 IST 2025","passed","Fri Jul 04 12:21:13 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+                This test validates the feedback form for positive rating 5.
+                
+                Test Steps:
+                1. Open the rating widget
+                2. Select rating ""5""
+                3. Verify ""Tell us more"" heading appears
+                4. Verify all required form questions are displayed:
+                   - ""Which areas contributed to your rating today?"" (Required) - with positive options
+                   - ""Which are you interested in?"" (Optional)
+                   - ""What did you like most?"" (Optional)
+                   - ""Your email"" (Optional)
+                5. Verify form answer elements are properly displayed
+            ","4110","should display correct feedback form for rating 5","Desktop Chrome","Fri Jul 04 12:20:23 IST 2025","passed","Fri Jul 04 12:20:27 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+            This test validates that the sentiment rating widget appears correctly.
+            
+            Test Steps:
+            1. Click on the 'Help us improve' ribbon button
+            2. Verify the rating widget opens
+            3. Verify the prompt heading: ""Rate your experience with this website""
+            4. Verify all six rating buttons (1 to 6) are visible
+            5. Confirm the satisfaction scale labels: ""NOT SATISFIED"" and ""VERY SATISFIED""
+        ","4905","should display rating widget when Help us improve is clicked","Desktop Chrome","Fri Jul 04 12:19:58 IST 2025","passed","Fri Jul 04 12:20:03 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+"
+      This test validates that validation errors appear and submit button is disabled 
+      when both text exceeds 255 characters and email is invalid for rating 6.
+      
+      Test Steps:
+      1. Open rating widget and select rating ""6""
+      2. Enter text exceeding 255 characters in feedback textarea
+      3. Enter invalid email address
+      4. Verify character count validation message appears
+      5. Verify email validation message appears
+      6. Verify submit button is disabled
+  ","9559","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 6","Desktop Chrome","Fri Jul 04 12:21:05 IST 2025","passed","Fri Jul 04 12:21:14 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+                This test validates user interactions with the feedback form for rating 1.
+                
+                Test Steps:
+                1. Open rating widget and select rating ""1""
+                2. Interact with ""Which areas contributed to your rating today?"" checkboxes
+                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
+                4. Fill in ""What did you like least?"" text area (Optional)
+                5. Fill in email field (Optional)
+                6. Verify form can be closed
+            ","8661","should allow user to interact with feedback form for rating 1","Desktop Chrome","Fri Jul 04 12:20:36 IST 2025","passed","Fri Jul 04 12:20:45 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+                This test validates the feedback form for positive rating 6.
+                
+                Test Steps:
+                1. Open the rating widget
+                2. Select rating ""6""
+                3. Verify ""Tell us more"" heading appears
+                4. Verify all required form questions are displayed:
+                   - ""Which areas contributed to your rating today?"" (Required) - with positive options
+                   - ""Which are you interested in?"" (Optional)
+                   - ""What did you like most?"" (Optional)
+                   - ""Your email"" (Optional)
+                5. Verify form answer elements are properly displayed
+            ","7830","should display correct feedback form for rating 6","Desktop Chrome","Fri Jul 04 12:20:50 IST 2025","passed","Fri Jul 04 12:20:57 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+            This test validates that the feedback form structure is consistent across all negative ratings.
+            
+            Test Steps:
+            1. Test each rating from 1 to 4
+            2. Verify that the same form questions appear for all negative ratings
+            3. Ensure consistent form structure and elements
+            4. Submit the form after each rating to prepare for the next
+            5. Verify the thank you message after submission
+        ","15731","should submit the feedback form across all negative ratings","Desktop Chrome","Fri Jul 04 12:22:15 IST 2025","passed","Fri Jul 04 12:22:31 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
 "
                 This test validates the feedback form for negative rating 4.
                 
@@ -368,7 +239,66 @@
                    - ""What did you like least?"" (Optional)
                    - ""Your email"" (Optional)
                 5. Verify form elements are properly displayed
-            ","4229","should display correct feedback form for rating 4","Desktop Chrome","Thu Jul 03 12:33:53 IST 2025","passed","Thu Jul 03 12:33:57 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+            ","3775","should display correct feedback form for rating 4","Desktop Chrome","Fri Jul 04 12:21:52 IST 2025","passed","Fri Jul 04 12:21:55 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+            This test validates that the feedback form structure is consistent across all positive ratings.
+            
+            Test Steps:
+            1. Test each rating from 5 to 6
+            2. Verify that the same form questions appear for all positive ratings
+            3. Ensure consistent form structure and elements
+            4. Submit the form after each rating to prepare for the next
+            5. Verify the thank you message after submission
+        ","11287","should submit the feedback form across all positive ratings","Desktop Chrome","Fri Jul 04 12:21:19 IST 2025","passed","Fri Jul 04 12:21:30 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 4.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""4""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","5093","should keep submit button disabled when only optional checkboxes selected for rating 4","Desktop Chrome","Fri Jul 04 12:22:10 IST 2025","passed","Fri Jul 04 12:22:15 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+      This test validates that validation errors appear and submit button is disabled 
+      when both text exceeds 255 characters and email is invalid for rating 2.
+      
+      Test Steps:
+      1. Open rating widget and select rating ""2""
+      2. Enter text exceeding 255 characters in feedback textarea
+      3. Enter invalid email address
+      4. Verify character count validation message appears
+      5. Verify email validation message appears
+      6. Verify submit button is disabled
+  ","8904","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 2","Desktop Chrome","Fri Jul 04 12:21:13 IST 2025","passed","Fri Jul 04 12:21:22 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+                This test validates the feedback form for negative rating 2.
+                
+                Test Steps:
+                1. Open the rating widget
+                2. Select rating ""2""
+                3. Verify ""Tell us more"" heading appears
+                4. Verify all required form questions are displayed:
+                   - ""Which areas contributed to your rating today?"" (Required)
+                   - ""Which are you interested in?"" (Optional)
+                   - ""What did you like least?"" (Optional)
+                   - ""Your email"" (Optional)
+                5. Verify form elements are properly displayed
+            ","4152","should display correct feedback form for rating 2","Desktop Chrome","Fri Jul 04 12:21:01 IST 2025","passed","Fri Jul 04 12:21:05 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+            This test validates the rating popup can be closed properly.
+            
+            Test Steps:
+            1. Open the rating widget
+            2. Click the close button
+            3. Verify the popup is closed
+            4. Confirm the rating heading is no longer visible
+        ","5031","should close rating popup when close button is clicked","Desktop Chrome","Fri Jul 04 12:20:03 IST 2025","passed","Fri Jul 04 12:20:08 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
 "
             This test validates the complete sentiment feedback flow.
             
@@ -379,4 +309,74 @@
             4. Verify feedback form appears
             5. Close the feedback form
             6. Reopen and test different rating
-        ","7312","should complete full sentiment feedback flow","Desktop Chrome","Thu Jul 03 12:32:31 IST 2025","passed","Thu Jul 03 12:32:38 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+        ","6073","should complete full sentiment feedback flow","Desktop Chrome","Fri Jul 04 12:20:17 IST 2025","passed","Fri Jul 04 12:20:23 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 3.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""3""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","4722","should keep submit button disabled when only optional checkboxes selected for rating 3","Desktop Chrome","Fri Jul 04 12:21:47 IST 2025","passed","Fri Jul 04 12:21:52 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+      This test validates that validation errors appear and submit button is disabled 
+      when both text exceeds 255 characters and email is invalid for rating 3.
+      
+      Test Steps:
+      1. Open rating widget and select rating ""3""
+      2. Enter text exceeding 255 characters in feedback textarea
+      3. Enter invalid email address
+      4. Verify character count validation message appears
+      5. Verify email validation message appears
+      6. Verify submit button is disabled
+  ","8188","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 3","Desktop Chrome","Fri Jul 04 12:21:39 IST 2025","passed","Fri Jul 04 12:21:47 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""
+"
+        This test ensures that selecting only the optional checkboxes under 
+        ""Which are you interested in?"" does NOT enable the submit button 
+        for rating 5.
+        
+        Test Steps:
+        1. Open the rating widget and select rating ""5""
+        2. Select all three optional checkboxes:
+           - Informational Services
+           - Transactional Services
+           - Mobile Applications
+        3. Ensure the mandatory field ""Which areas contributed to your rating today?"" is not filled
+        4. Verify the submit button remains disabled
+      ","4779","should keep submit button disabled when only optional checkboxes selected for rating 5","Desktop Chrome","Fri Jul 04 12:20:45 IST 2025","passed","Fri Jul 04 12:20:50 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+                This test validates user interactions with the feedback form for rating 5.
+                
+                Test Steps:
+                1. Open rating widget and select rating ""5""
+                2. Interact with ""Which areas contributed to your rating today?"" checkboxes (positive options)
+                3. Interact with ""Which are you interested in?"" checkboxes (Optional)
+                4. Fill in ""What did you like most?"" text area (Optional)
+                5. Fill in email field (Optional)
+                6. Verify form can be closed
+            ","6888","should allow user to interact with feedback form for rating 5","Desktop Chrome","Fri Jul 04 12:20:27 IST 2025","passed","Fri Jul 04 12:20:34 IST 2025","WOGAA Positive Ratings Feedback Flow (Ratings 5-6)","positiveRatings.spec.js","",""
+"
+            This test validates that the WOGAA Documentation website loads correctly.
+            
+            Test Steps:
+            1. Launch the WOGAA Documentation website
+            2. Verify the page title is correct
+        ","5647","should load WOGAA homepage successfully","Desktop Chrome","Fri Jul 04 12:19:51 IST 2025","passed","Fri Jul 04 12:19:56 IST 2025","WOGAA Sentiments Rating Widget","helpUsImprove.spec.js","",""
+"
+      This test validates that validation errors appear and submit button is disabled 
+      when both text exceeds 255 characters and email is invalid for rating 1.
+      
+      Test Steps:
+      1. Open rating widget and select rating ""1""
+      2. Enter text exceeding 255 characters in feedback textarea
+      3. Enter invalid email address
+      4. Verify character count validation message appears
+      5. Verify email validation message appears
+      6. Verify submit button is disabled
+  ","9525","should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 1","Desktop Chrome","Fri Jul 04 12:20:46 IST 2025","passed","Fri Jul 04 12:20:55 IST 2025","WOGAA Negative Ratings Feedback Flow (Ratings 1-4)","negativeRatings.spec.js","",""

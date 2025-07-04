@@ -1,8 +1,5 @@
-//const { test, expect, request } = require("@playwright/test");
 
-import dotenv from 'dotenv';
-dotenv.config({ path: `.env.${process.env.ENV || 'qa'}` });
-
+import './loadEnv.js';
 export default class PlaywrightControls {
   constructor(page) {
     if (!page) throw new Error('Playwright driver is not configured');
@@ -24,7 +21,6 @@ export default class PlaywrightControls {
   }
 
   async clickByText(textValue) {
-    console.log(`🖱️ Clicking element with text: ${textValue}`);
     await this.page.getByText(textValue).click();
   }
 }

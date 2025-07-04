@@ -23,8 +23,8 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
     await allure.epic("WOGAA Sentiments Widget");
     await allure.feature("Positive Ratings Feedback Collection");
     await allure.owner("suraj.suri");
-    await allure.parameter("Environment", process.env.ENV || "qa");
-    await allure.parameter("Tested URL", process.env.URL);
+    await allure.parameter("Environment", process.env.TEST_ENV);
+    await allure.parameter("Tested URL", process.env.BASE_URL);
 
     // Navigate to the page before each test
     await controls.navigatetoURL();

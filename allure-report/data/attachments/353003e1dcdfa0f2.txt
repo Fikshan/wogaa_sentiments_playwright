@@ -1,0 +1,2 @@
+Loaded URL from env: https://beta-docs.wogaa.cloud/
+Test "should show feedback form when rating 1 is selected" completed with status: passed

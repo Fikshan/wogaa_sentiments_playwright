@@ -4,269 +4,337 @@ import BasePage from "./BasePage.js";
 let basepage;
 
 export default class TellUsMorePage {
-constructor(page) {
+  constructor(page) {
     if (!page) throw new Error("Playwright driver is not configured");
     this.page = page;
     basepage = new BasePage(page);
-}
+  }
 
-async click(locator) {
+  async click(locator) {
     await this.page.locator(locator).click();
-}
+  }
 
-async fill(locator, text) {
+  async fill(locator, text) {
     await this.page.locator(locator).fill(text);
-}
+  }
 
-async clickButtonByRoleAndName(buttonText) {
+  async clickButtonByRoleAndName(buttonText) {
     await this.page
       .getByRole("button", { name: buttonText, exact: true })
       .click();
-}
+  }
 
-async verifyFeedbackFormQuestions() {
-    await expect(this.page.getByText("Which areas contributed to your rating today?")).toBeVisible();
+  async verifyFeedbackFormQuestions() {
+    await expect(
+      this.page.getByText("Which areas contributed to your rating today?")
+    ).toBeVisible();
     await expect(this.page.getByText("Select all that apply")).toBeVisible();
-    await expect(this.page.getByText("Which are you interested in?")).toBeVisible();
+    await expect(
+      this.page.getByText("Which are you interested in?")
+    ).toBeVisible();
     await expect(this.page.getByText("What did you like least?")).toBeVisible();
     await expect(this.page.getByText("Your email")).toBeVisible();
     await this.page.waitForTimeout(100);
-}
+  }
 
-async interactWithFeedbackForm() {
-       
-    await this.page.getByText('Technical errors').click();
-    await this.page.getByText('Difficult to navigate').click();
-      
-    await this.page.getByText('Informational Services').click();
-    await this.page.getByPlaceholder('Type your reply here').fill('The website needs improvement in navigation and loading speed.');
-    await this.page.getByPlaceholder('Type your email here').fill('test@example.com');
-    await expect(this.page.getByPlaceholder('Type your reply here')).toHaveValue('The website needs improvement in navigation and loading speed.');
-    await expect(this.page.getByPlaceholder('Type your email here')).toHaveValue('test@example.com');
-}
+  async interactWithFeedbackForm() {
+    await this.page.getByText("Technical errors").click();
+    await this.page.getByText("Difficult to navigate").click();
 
-async verifyFormElements() {
-            const contributingAreas = [
-                'Technical errors',
-                'Couldn\'t find content',
-                'Difficult to navigate',
-                'Website loaded slowly',
-                'Content not clear',
-                'Others'
-            ];
-            
-            for (const area of contributingAreas) {
-                await expect(this.page.getByText(area)).toBeVisible();
-            } 
+    await this.page.getByText("Informational Services").click();
+    await this.page
+      .getByPlaceholder("Type your reply here")
+      .fill("The website needs improvement in navigation and loading speed.");
+    await this.page
+      .getByPlaceholder("Type your email here")
+      .fill("test@example.com");
+    await expect(
+      this.page.getByPlaceholder("Type your reply here")
+    ).toHaveValue(
+      "The website needs improvement in navigation and loading speed."
+    );
+    await expect(
+      this.page.getByPlaceholder("Type your email here")
+    ).toHaveValue("test@example.com");
+  }
 
-            const interests = [
-                'Informational Services',
-                'Transactional Services',
-                  'Mobile Applications'
-            ];
-            
-              for (const labelText of interests) {
-                  const checkbox = this.page.getByLabel(labelText);
-                  await expect(checkbox).toBeVisible();
-}
-            
-            await expect(this.page.getByPlaceholder('Type your reply here')).toBeVisible();
-            await expect(this.page.getByPlaceholder('Type your email here')).toBeVisible();
-            await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-}
+  async verifyFormElements() {
+    const contributingAreas = [
+      "Technical errors",
+      "Couldn't find content",
+      "Difficult to navigate",
+      "Website loaded slowly",
+      "Content not clear",
+      "Others",
+    ];
 
-async verifyFormElementsAndSubmit() {
-            // Verify checkboxes for "Which areas contributed to your rating today?"
-            const contributingAreas = [
-                'Technical errors',
-                'Couldn\'t find content',
-                'Difficult to navigate',
-                'Website loaded slowly',
-                'Content not clear',
-                'Others'
-            ];
-            
-            for (const area of contributingAreas) {
-                await expect(this.page.getByText(area)).toBeVisible();
-            } 
-            
-            //Verify checkboxes for "Which are you interested in?"
-            const interests = [
-                'Informational Services',
-                'Transactional Services',
-                //'Mobile Applications'
-            ];
-            
-            for (const interest of interests) {
-                await expect(this.page.getByText(interest)).toBeVisible();
-            }
+    for (const area of contributingAreas) {
+      await expect(this.page.getByText(area)).toBeVisible();
+    }
 
-            // await expect(this.page.getByText("Informational Services")).toBeVisible();
-            // await expect(this.page.getByText("Transactional Services")).toBeVisible();
-            // await expect(this.page.getByText("Mobile Applications")).toBeVisible();
-            
-            // Verify text area for "What did you like least?"
-            await expect(this.page.getByPlaceholder('Type your reply here')).toBeVisible();
-            
-            // Verify email input field
-            await expect(this.page.getByPlaceholder('Type your email here')).toBeVisible();
-            
-            // Verify submit button
-            await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-}
+    const interests = [
+      "Informational Services",
+      "Transactional Services",
+      "Mobile Applications",
+    ];
 
-async interactWithFeedbackFormAndSubmit() {
-        await this.page.getByText('Technical errors').click();
-        await this.page.getByText('Difficult to navigate').click();
+    for (const labelText of interests) {
+      const checkbox = this.page.getByLabel(labelText);
+      await expect(checkbox).toBeVisible();
+    }
 
-        await this.page.getByLabel("Informational Services").click();
-        await this.page.getByLabel("Transactional Services").click();
-        await this.page.getByLabel("Mobile Applications").click();
-  
-        await this.page.getByPlaceholder('Type your reply here').fill('The website needs improvement in navigation and loading speed.');
-        await this.page.getByPlaceholder('Type your email here').fill('test@example.com');
-        
-        await expect(this.page.getByPlaceholder('Type your reply here')).toHaveValue('The website needs improvement in navigation and loading speed.');
-        await expect(this.page.getByPlaceholder('Type your email here')).toHaveValue('test@example.com');
-        await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-        await this.page.getByRole('button', { name: 'SUBMIT' }).click();
-        await this.page.waitForTimeout(500);
-        expect(this.page.getByText('Thank you for your feedback!')).toBeVisible
-}
+    await expect(
+      this.page.getByPlaceholder("Type your reply here")
+    ).toBeVisible();
+    await expect(
+      this.page.getByPlaceholder("Type your email here")
+    ).toBeVisible();
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+  }
 
-async fillLongFeedbackText() {
-    const longText = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.';
-    await this.page.getByPlaceholder('Type your reply here').pressSequentially(longText);
-}
+  async verifyFormElementsAndSubmit() {
+    // Verify checkboxes for "Which areas contributed to your rating today?"
+    const contributingAreas = [
+      "Technical errors",
+      "Couldn't find content",
+      "Difficult to navigate",
+      "Website loaded slowly",
+      "Content not clear",
+      "Others",
+    ];
 
-async fillInvalidEmail() {
-    await this.page.getByPlaceholder('Type your email here').pressSequentially("invalidEmail",{ delay:100 });
-}
+    for (const area of contributingAreas) {
+      await expect(this.page.getByText(area)).toBeVisible();
+    }
 
-async waitForValidationMessages() {
+    //Verify checkboxes for "Which are you interested in?"
+    const interests = [
+      "Informational Services",
+      "Transactional Services",
+      //'Mobile Applications'
+    ];
+
+    for (const interest of interests) {
+      await expect(this.page.getByText(interest)).toBeVisible();
+    }
+
+    // await expect(this.page.getByText("Informational Services")).toBeVisible();
+    // await expect(this.page.getByText("Transactional Services")).toBeVisible();
+    // await expect(this.page.getByText("Mobile Applications")).toBeVisible();
+
+    // Verify text area for "What did you like least?"
+    await expect(
+      this.page.getByPlaceholder("Type your reply here")
+    ).toBeVisible();
+
+    // Verify email input field
+    await expect(
+      this.page.getByPlaceholder("Type your email here")
+    ).toBeVisible();
+
+    // Verify submit button
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+  }
+
+  async interactWithFeedbackFormAndSubmit() {
+    await this.page.getByText("Technical errors").click();
+    await this.page.getByText("Difficult to navigate").click();
+
+    await this.page.getByLabel("Informational Services").click();
+    await this.page.getByLabel("Transactional Services").click();
+    await this.page.getByLabel("Mobile Applications").click();
+
+    await this.page
+      .getByPlaceholder("Type your reply here")
+      .fill("The website needs improvement in navigation and loading speed.");
+    await this.page
+      .getByPlaceholder("Type your email here")
+      .fill("test@example.com");
+
+    await expect(
+      this.page.getByPlaceholder("Type your reply here")
+    ).toHaveValue(
+      "The website needs improvement in navigation and loading speed."
+    );
+    await expect(
+      this.page.getByPlaceholder("Type your email here")
+    ).toHaveValue("test@example.com");
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+    await this.page.getByRole("button", { name: "SUBMIT" }).click();
+    await this.page.waitForTimeout(500);
+    expect(this.page.getByText("Thank you for your feedback!")).toBeVisible;
+  }
+
+  async fillLongFeedbackText() {
+    const longText =
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.";
+    await this.page
+      .getByPlaceholder("Type your reply here")
+      .pressSequentially(longText);
+  }
+
+  async fillInvalidEmail() {
+    await this.page
+      .getByPlaceholder("Type your email here")
+      .pressSequentially("invalidEmail", { delay: 100 });
+  }
+
+  async waitForValidationMessages() {
     await this.page.waitForSelector('[aria-label*="Character count exceeded"]');
-    await this.page.waitForSelector('[aria-label="Alert, Please enter a valid email."]');
-}
+    await this.page.waitForSelector(
+      '[aria-label="Alert, Please enter a valid email."]'
+    );
+  }
 
-async verifyCharacterCountValidation() {
-    const characterCountMessage = await this.page.locator('[aria-label*="Character count exceeded"]');
+  async verifyCharacterCountValidation() {
+    const characterCountMessage = await this.page.locator(
+      '[aria-label*="Character count exceeded"]'
+    );
     await expect(characterCountMessage).toBeVisible();
-    
+
     // Extract character count from aria-label to verify it's > 255
-    const ariaLabel = await characterCountMessage.getAttribute('aria-label');
+    const ariaLabel = await characterCountMessage.getAttribute("aria-label");
     const characterCount = ariaLabel.match(/(\d+) out of 255/)[1];
     expect(parseInt(characterCount)).toBeGreaterThan(255);
-    
+
     return parseInt(characterCount);
-}
+  }
 
-async verifyEmailValidation() {
-    const emailValidationMessage = await this.page.locator('[aria-label="Alert, Please enter a valid email."]');
+  async verifyEmailValidation() {
+    const emailValidationMessage = await this.page.locator(
+      '[aria-label="Alert, Please enter a valid email."]'
+    );
     await expect(emailValidationMessage).toBeVisible();
-    await expect(emailValidationMessage).toHaveText('Please enter a valid email.');
-}
+    await expect(emailValidationMessage).toHaveText(
+      "Please enter a valid email."
+    );
+  }
 
-async verifySubmitButtonDisabled() {
+  async verifySubmitButtonDisabled() {
     const submitButton = await this.page.locator('button:has-text("SUBMIT")');
     await expect(submitButton).toBeDisabled();
-}
+  }
 
-async verifySubmitButtonEnabled() {
+  async verifySubmitButtonEnabled() {
     const submitButton = await this.page.locator('button:has-text("SUBMIT")');
     await expect(submitButton).toBeEnabled();
-}
+  }
 
-async performCombinedValidationTest() {
+  async performCombinedValidationTest() {
     await this.fillLongFeedbackText();
     await this.fillInvalidEmail();
     await this.waitForValidationMessages();
     await this.verifyCharacterCountValidation();
     await this.verifyEmailValidation();
     await this.verifySubmitButtonDisabled();
-}
+  }
 
-async selectOptionalInterests() {
+  async selectOptionalInterests() {
     await this.page.getByLabel("Informational Services").click();
     await this.page.getByLabel("Transactional Services").click();
     await this.page.getByLabel("Mobile Applications").click();
-}
+  }
 
-async verifySubmitButtonIsDisabled() {
+  async verifySubmitButtonIsDisabled() {
     const submitButton = this.page.getByRole("button", { name: "SUBMIT" });
     await expect(submitButton).toBeDisabled();
-}
+  }
 
-async verifyPositiveFeedbackFormQuestions() {
-    await expect(this.page.getByText("Which areas contributed to your rating today?")).toBeVisible();
+  async verifyPositiveFeedbackFormQuestions() {
+    await expect(
+      this.page.getByText("Which areas contributed to your rating today?")
+    ).toBeVisible();
     await expect(this.page.getByText("Select all that apply")).toBeVisible();
     await expect(this.page.getByText("Which are you interested")).toBeVisible();
     await expect(this.page.getByText("What did you like most")).toBeVisible();
     await expect(this.page.getByText("Your email")).toBeVisible();
-}
+  }
 
-async interactWithPositiveFeedbackForm() {
-  await this.page.getByText("Website is great").click();
-  await this.page.getByText("Website loaded fast").click();
-  await this.page.getByText("Content was clear").click();
-  await this.page.getByLabel("Informational Services").click();
-  await this.page.getByLabel("Transactional Services").click();
-  await this.page.getByLabel("Mobile Applications").click();
-  await this.page.getByPlaceholder('Type your reply here').pressSequentially('Great user experience and fast loading times.');
-  await this.page.getByPlaceholder('Type your email here').pressSequentially('positive.feedback@test.com');
-  await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-}
+  async interactWithPositiveFeedbackForm() {
+    await this.page.getByText("Website is great").click();
+    await this.page.getByText("Website loaded fast").click();
+    await this.page.getByText("Content was clear").click();
+    await this.page.getByLabel("Informational Services").click();
+    await this.page.getByLabel("Transactional Services").click();
+    await this.page.getByLabel("Mobile Applications").click();
+    await this.page
+      .getByPlaceholder("Type your reply here")
+      .pressSequentially("Great user experience and fast loading times.");
+    await this.page
+      .getByPlaceholder("Type your email here")
+      .pressSequentially("positive.feedback@test.com");
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+  }
 
-async interactWithPositiveFeedbackFormAndSubmit() {
-  await this.page.getByText("Website is great").click();
-  await this.page.getByText("Website loaded fast").click();
-  await this.page.getByText("Content was clear").click();
-  await this.page.getByLabel("Informational Services").click();
-  await this.page.getByLabel("Transactional Services").click();
-  await this.page.getByLabel("Mobile Applications").click();
-  await this.page.getByPlaceholder('Type your reply here').pressSequentially('Great user experience and fast loading times.');
-  await this.page.getByPlaceholder('Type your email here').pressSequentially('positive.feedback@test.com');
-  await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-  await this.page.getByRole('button', { name: 'SUBMIT' }).click();
-  await this.page.waitForTimeout(100);
-  await expect(this.page.getByText('Thank you for your feedback!')).toBeVisible
-  await this.page.waitForTimeout(500);
-}
+  async interactWithPositiveFeedbackFormAndSubmit() {
+    await this.page.getByText("Website is great").click();
+    await this.page.getByText("Website loaded fast").click();
+    await this.page.getByText("Content was clear").click();
+    await this.page.getByLabel("Informational Services").click();
+    await this.page.getByLabel("Transactional Services").click();
+    await this.page.getByLabel("Mobile Applications").click();
+    await this.page
+      .getByPlaceholder("Type your reply here")
+      .pressSequentially("Great user experience and fast loading times.");
+    await this.page
+      .getByPlaceholder("Type your email here")
+      .pressSequentially("positive.feedback@test.com");
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+    await this.page.getByRole("button", { name: "SUBMIT" }).click();
+    await this.page.waitForTimeout(100);
+    await expect(this.page.getByText("Thank you for your feedback!"))
+      .toBeVisible;
+    await this.page.waitForTimeout(500);
+  }
 
-async selectPositiveContributionAreas() {
-  await this.page.locator('text="Website is great"').click();
-  await this.page.locator('text="Easy to navigate"').click();
-  await this.page.locator('text="Easy to find content"').click();
-}
+  async selectPositiveContributionAreas() {
+    await this.page.locator('text="Website is great"').click();
+    await this.page.locator('text="Easy to navigate"').click();
+    await this.page.locator('text="Easy to find content"').click();
+  }
 
-async verifyPositiveFormAnswerElements() {
+  async verifyPositiveFormAnswerElements() {
     const contributingAreas = [
-        'Website is great',
-        'Website loaded fast',
-        'Easy to navigate',
-        'Easy to find content',
-        'Content was clear',
-        'Others'
+      "Website is great",
+      "Website loaded fast",
+      "Easy to navigate",
+      "Easy to find content",
+      "Content was clear",
+      "Others",
     ];
-    
+
     for (const area of contributingAreas) {
-        await expect(this.page.getByText(area)).toBeVisible();
+      await expect(this.page.getByText(area)).toBeVisible();
     }
-    
+
     const interests = [
-        'Informational Services',
-        'Transactional Services',
-        'Mobile Applications'
+      "Informational Services",
+      "Transactional Services",
+      "Mobile Applications",
     ];
 
     for (const labelText of interests) {
       const checkbox = this.page.getByLabel(labelText);
       await expect(checkbox).toBeVisible();
-}
-    await expect(this.page.getByPlaceholder('Type your reply here')).toBeVisible();
-    await expect(this.page.getByPlaceholder('Type your email here')).toBeVisible();
-    await expect(this.page.getByRole('button', { name: 'SUBMIT' })).toBeVisible();
-}
-
-    
-    
+    }
+    await expect(
+      this.page.getByPlaceholder("Type your reply here")
+    ).toBeVisible();
+    await expect(
+      this.page.getByPlaceholder("Type your email here")
+    ).toBeVisible();
+    await expect(
+      this.page.getByRole("button", { name: "SUBMIT" })
+    ).toBeVisible();
+  }
 }

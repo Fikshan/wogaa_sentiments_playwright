@@ -1,0 +1,2 @@
+Loaded URL from env: https://beta-docs.wogaa.cloud/
+Test "should load WOGAA homepage successfully" completed with status: passed

@@ -1,17 +1,10 @@
-// @ts-nocheck
+// +// This file configures Playwright for testing the Wogaa website.
 // File: playwright.config.js
 // This file configures Playwright for testing the Wogaa website.
 // It sets the test directory, timeout, base URL, and browser settings for both desktop and mobile environments.
 // It also specifies the use of headless mode, screenshot capture on failure, and video recording   
 
-
-import dotenv from 'dotenv';
-dotenv.config({ path: `.env.${process.env.ENV || 'qa'}` });
-
-console.log("🔍 Loaded Environment Variables:");
-console.log("ENV:", process.env.ENV);
-console.log("BROWSER:", process.env.BROWSER);
-console.log("URL:", process.env.URL);
+import './helpers/loadEnv.js'; // Load environment variables from .env file
 
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
@@ -23,7 +16,6 @@ export default defineConfig({
   reporter:[['allure-playwright',{ outputFolder: 'allure-results' }]],
   timeout: 30000,
   use: {
-    //baseURL: process.env.URL,
     headless: false,
     screenshot: 'off',
     video: 'off',
@@ -33,6 +25,25 @@ export default defineConfig({
       name: 'Desktop Chrome',
       use: { ...devices['Desktop Chrome'] },
     },
+
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
+     /* Test against branded browsers. */
+    // {
+    //   name: 'Microsoft Edge',
+    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    // },
+    // {
+    //   name: 'Google Chrome',
+    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    // },
     // {
     //   name: 'Mobile',
     //   use: { ...devices['iPhone 13'] },
