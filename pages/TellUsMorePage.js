@@ -1,13 +1,9 @@
 import { expect } from "@playwright/test";
-import BasePage from "./BasePage.js";
-
-let basepage;
 
 export default class TellUsMorePage {
   constructor(page) {
     if (!page) throw new Error("Playwright driver is not configured");
     this.page = page;
-    basepage = new BasePage(page);
   }
 
   async click(locator) {
@@ -120,11 +116,6 @@ export default class TellUsMorePage {
       await expect(this.page.getByText(interest)).toBeVisible();
     }
 
-    // await expect(this.page.getByText("Informational Services")).toBeVisible();
-    // await expect(this.page.getByText("Transactional Services")).toBeVisible();
-    // await expect(this.page.getByText("Mobile Applications")).toBeVisible();
-
-    // Verify text area for "What did you like least?"
     await expect(
       this.page.getByPlaceholder("Type your reply here")
     ).toBeVisible();

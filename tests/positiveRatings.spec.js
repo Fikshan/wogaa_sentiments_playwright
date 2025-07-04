@@ -34,9 +34,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
 
   // Test for each positive rating (5-6)
   for (let rating = 5; rating <= 6; rating++) {
-    test(`should display correct feedback form for rating ${rating}`, async ({
-      page,
-    }) => {
+    test(`should display correct feedback form for rating ${rating}`, async () => {
       await allure.description(`
                 This test validates the feedback form for positive rating ${rating}.
                 
@@ -103,9 +101,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
       await page.waitForTimeout(1000);
     });
 
-    test(`should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating ${rating}`, async ({
-      page,
-    }) => {
+    test(`should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating ${rating}`, async () => {
       await allure.description(`
       This test validates that validation errors appear and submit button is disabled 
       when both text exceeds 255 characters and email is invalid for rating ${rating}.
@@ -133,9 +129,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
       await tellUsMore.performCombinedValidationTest();
     });
 
-    test(`should keep submit button disabled when only optional checkboxes selected for rating ${rating}`, async ({
-      page,
-    }) => {
+    test(`should keep submit button disabled when only optional checkboxes selected for rating ${rating}`, async () => {
       await allure.description(`
         This test ensures that selecting only the optional checkboxes under 
         "Which are you interested in?" does NOT enable the submit button 
@@ -169,9 +163,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
     });
   }
 
-  test(`should submit the feedback form across all positive ratings`, async ({
-    page,
-  }) => {
+  test(`should submit the feedback form across all positive ratings`, async () => {
     await allure.description(`
             This test validates that the feedback form structure is consistent across all positive ratings.
             

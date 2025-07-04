@@ -46,7 +46,7 @@ test.describe('WOGAA Sentiments Rating Widget', () => {
         await expect(page).toHaveTitle('WOGAA Documentation');
     });
 
-    test('should display rating widget when Help us improve is clicked', async ({ page }) => {
+    test('should display rating widget when Help us improve is clicked', async () => {
         await allure.description(`
             This test validates that the sentiment rating widget appears correctly.
             
@@ -88,7 +88,7 @@ test.describe('WOGAA Sentiments Rating Widget', () => {
         await expect(page.getByRole('heading', { name: 'Rate your experience with this website' })).not.toBeVisible();
     });
 
-    test('should show feedback form when rating 1 is selected', async ({ page }) => {
+    test('should show feedback form when rating 1 is selected', async () => {
         await allure.description(`
             This test validates the feedback flow for negative ratings.
             
@@ -108,7 +108,7 @@ test.describe('WOGAA Sentiments Rating Widget', () => {
         await ratingWidget.verifyTellUsMoreHeading();
     });
 
-    test('should show feedback form when rating 6 is selected', async ({ page }) => {
+    test('should show feedback form when rating 6 is selected', async () => {
         await allure.description(`
             This test validates the feedback flow for positive ratings.
             

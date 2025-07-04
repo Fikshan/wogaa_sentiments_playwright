@@ -34,9 +34,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
 
   // Test for each negative rating (1-4)
   for (let rating = 1; rating <= 4; rating++) {
-    test(`should display correct feedback form for rating ${rating}`, async ({
-      page,
-    }) => {
+    test(`should display correct feedback form for rating ${rating}`, async () => {
       await allure.description(`
                 This test validates the feedback form for negative rating ${rating}.
                 
@@ -187,7 +185,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
     });
   }
 
-    test(`should submit the feedback form across all negative ratings`, async ({
+  test(`should submit the feedback form across all negative ratings`, async ({
     page,
   }) => {
     await allure.description(`
