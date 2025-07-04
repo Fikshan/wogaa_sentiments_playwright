@@ -16,7 +16,7 @@ export default defineConfig({
   reporter:[['allure-playwright',{ outputFolder: 'allure-results' }]],
   timeout: 30000,
   use: {
-    headless: false,
+    headless: true,
     screenshot: 'off',
     video: 'off',
   },
