@@ -1,0 +1,2 @@
+Loaded URL from env: https://beta-docs.wogaa.cloud/
+Test "should display validation errors and disable submit button when text exceeds 255 characters and email is invalid for rating 6" completed with status: passed

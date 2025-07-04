@@ -1,0 +1,2 @@
+Loaded URL from env: https://beta-docs.wogaa.cloud/
+Test "should submit the feedback form across all positive ratings" completed with status: passed
