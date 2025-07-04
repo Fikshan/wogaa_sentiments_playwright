@@ -1,4 +1,4 @@
-// helpers/loadEnv.js
+// File: helpers/loadEnv.js
 import dotenv from 'dotenv'; // Load environment variables from a specific .env file based on the ENV variable
                             // This allows for different configurations based on the environment (e.g., staging, production).
 
