@@ -104,6 +104,15 @@ npm install
 ```bash
 npx playwright install
 ```
+4. Install the required dev dependencies locally
+Run the following command from your project root:
+```bash
+npm install --save-dev rimraf cross-env
+```
+This installs both rimraf and cross-env into your local node_modules so they can be used in scripts like:
+
+"clean-results": "rimraf allure-results",
+"test:qa": "cross-env ENV=qa npm run test:allure"
 
 ## Environment Setup
 
