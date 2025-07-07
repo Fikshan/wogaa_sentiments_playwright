@@ -10,7 +10,7 @@ import fs from 'fs';      // Import the filesystem module to check for the exist
 const environment = process.env.ENV || 'qa';
 // Build the path to the environment-specific .env file
 const envPath = `.env.${environment}`;
-console.log(`🔍 Looking for environment file: ${envPath}`);
+console.log(`Looking for environment file: ${envPath}`);
 
 // Validate .env file exists and Load environment variables
 if (fs.existsSync(envPath)) {
