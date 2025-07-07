@@ -14,7 +14,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
 
   // Setup before each test
   test.beforeEach(async ({ page }) => {
-    await attachEnvInfo();
+    await attachEnvInfo(page);
     controls = new PlaywrightControls(page);
     ratingWidget = new RatingWidget(page);
     basepage = new BasePage(page);
@@ -23,8 +23,6 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
     await allure.epic("WOGAA Sentiments Widget");
     await allure.feature("Negative Ratings Feedback Collection");
     await allure.owner("suraj.suri");
-    await allure.parameter("Environment", process.env.ENV);
-    await allure.parameter("Tested URL", process.env.URL);
 
     // Navigate to the page before each test
     await controls.navigatetoURL();

@@ -9,6 +9,7 @@ import './helpers/loadEnv.js'; // Load environment variables from .env file
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
+  fullyParallel: true,
   testMatch: '**/*.spec.js',
   testIgnore: '**/node_modules/**',
   retries: 1,

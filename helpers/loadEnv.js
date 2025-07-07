@@ -18,12 +18,12 @@ if (!fs.existsSync(envPath)) {
 // Load environment variables
 dotenv.config({ path: envPath });
 
-console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
-console.log(`Environment Variables:`, {
-  ENV: process.env.ENV,
-  BROWSER: process.env.BROWSER,
-  URL: process.env.URL,
-  ALLURE_RESULTS_DIR: process.env.ALLURE_RESULTS_DIR,
-  ALLURE_REPORT_DIR: process.env.ALLURE_REPORT_DIR,
-  PLAYWRIGHT_CONFIG: process.env.PLAYWRIGHT_CONFIG
-});
+// console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
+// console.log(`Environment Variables:`, {
+//   ENV: process.env.ENV,
+//   BROWSER: process.env.BROWSER,
+//   URL: process.env.URL,
+//   ALLURE_RESULTS_DIR: process.env.ALLURE_RESULTS_DIR,
+//   ALLURE_REPORT_DIR: process.env.ALLURE_REPORT_DIR,
+//   PLAYWRIGHT_CONFIG: process.env.PLAYWRIGHT_CONFIG
+// });
