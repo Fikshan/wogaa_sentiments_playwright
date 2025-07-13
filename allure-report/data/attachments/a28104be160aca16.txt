@@ -1,2 +1,0 @@
-Loaded URL from env: https://beta-docs.wogaa.cloud/
-Test "should complete full sentiment feedback flow" completed with status: passed

@@ -38,13 +38,10 @@ export default class RatingWidget {
     await expect(verySatisfied).toBeVisible();
   }
 
-  async clickRatingButton(value) {
-    const button = this.page.getByRole("button", {
-      name: new RegExp(`^Rate ${value} of 6`, "i"),
-      exact: false,
-    });
-    await button.click();
-  }
+  async clickRatingButton(ratingValue) {
+    await this.page.getByRole('button', { name: `Rate ${ratingValue} of 6` }).click();
+}
+
 
   async verifyTellUsMoreHeading() {
     const heading = this.page.getByRole("heading", {

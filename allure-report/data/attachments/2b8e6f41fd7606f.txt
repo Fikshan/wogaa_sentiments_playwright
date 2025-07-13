@@ -1,2 +1,0 @@
-Loaded URL from env: https://beta-docs.wogaa.cloud/
-Test "should allow user to interact with feedback form for rating 1" completed with status: passed

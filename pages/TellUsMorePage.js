@@ -1,10 +1,13 @@
 import { expect } from "@playwright/test";
 
+const LONG_TEXT = "a".repeat(256); // Exceeds 255 character limit
+
 export default class TellUsMorePage {
   constructor(page) {
     if (!page) throw new Error("Playwright driver is not configured");
     this.page = page;
   }
+
 
   async click(locator) {
     await this.page.locator(locator).click();
@@ -91,7 +94,6 @@ export default class TellUsMorePage {
   }
 
   async verifyFormElementsAndSubmit() {
-    // Verify checkboxes for "Which areas contributed to your rating today?"
     const contributingAreas = [
       "Technical errors",
       "Couldn't find content",
@@ -105,7 +107,6 @@ export default class TellUsMorePage {
       await expect(this.page.getByText(area)).toBeVisible();
     }
 
-    //Verify checkboxes for "Which are you interested in?"
     const interests = [
       "Informational Services",
       "Transactional Services",
@@ -120,12 +121,10 @@ export default class TellUsMorePage {
       this.page.getByPlaceholder("Type your reply here")
     ).toBeVisible();
 
-    // Verify email input field
     await expect(
       this.page.getByPlaceholder("Type your email here")
     ).toBeVisible();
 
-    // Verify submit button
     await expect(
       this.page.getByRole("button", { name: "SUBMIT" })
     ).toBeVisible();
@@ -162,13 +161,9 @@ export default class TellUsMorePage {
     expect(this.page.getByText("Thank you for your feedback!")).toBeVisible;
   }
 
-  async fillLongFeedbackText() {
-    const longText =
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.";
-    await this.page
-      .getByPlaceholder("Type your reply here")
-      .pressSequentially(longText);
-  }
+ async fillLongFeedbackText() {
+  await this.page.getByPlaceholder("Type your reply here").pressSequentially(LONG_TEXT);
+}
 
   async fillInvalidEmail() {
     await this.page

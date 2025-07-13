@@ -1,0 +1,1 @@
+Test "should keep submit button disabled when only optional checkboxes selected for rating 6" completed with status: passed

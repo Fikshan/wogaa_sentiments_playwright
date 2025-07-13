@@ -10,12 +10,12 @@ import fs from 'fs';      // Import the filesystem module to check for the exist
 const environment = process.env.ENV || 'qa';
 // Build the path to the environment-specific .env file
 const envPath = `.env.${environment}`;
-console.log(`🔍 Looking for environment file: ${envPath}`);
+console.log(`Looking for environment file: ${envPath}`);
 
 // Validate .env file exists and Load environment variables
 if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
-  console.log(`Loaded environment variables from ${envPath}`);
+  //console.log(`Loaded environment variables from ${envPath}`);
 } else {
   console.log(`No .env file found at ${envPath}, using environment variables or defaults`);
 }
@@ -25,9 +25,9 @@ export const TEST_BROWSER = process.env.BROWSER;
 export const BASE_URL = process.env.URL;
 
 //Get environment variables (loaded from .env file)
-console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
-console.log(`Environment Variables:`, {
-  ENV: process.env.ENV,
-  BROWSER: process.env.BROWSER,
-  URL: process.env.URL,
-});
+// console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
+// console.log(`Environment Variables:`, {
+//   ENV: process.env.ENV,
+//   BROWSER: process.env.BROWSER,
+//   URL: process.env.URL,
+// });

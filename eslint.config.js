@@ -9,7 +9,7 @@ export default defineConfig([
     languageOptions: { 
       globals: {
         ...globals.browser,
-        ...globals.node  // Add Node.js globals including 'process'
+        ...globals.node,  // Add Node.js globals including 'process'
       }
     }
   },

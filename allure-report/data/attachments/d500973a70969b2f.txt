@@ -1,2 +1,0 @@
-Loaded URL from env: https://beta-docs.wogaa.cloud/
-Test "should display rating widget when Help us improve is clicked" completed with status: passed

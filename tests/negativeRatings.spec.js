@@ -2,32 +2,53 @@ console.log("Running negativeRatings.spec.js");
 // This file is part of the WOGAA project.
 
 import { test, expect } from "@playwright/test";
-import PlaywrightControls from "../helpers/PlaywrightControls.js";
-import RatingWidget from "../pages/RatingWidgetPage.js";
-import TellUsMore from "../pages/TellUsMorePage.js";
-import { attachEnvInfo } from "../helpers/allureHelper.js";
+import PlaywrightControls from "helpers/PlaywrightControls.js";
+import RatingWidget from "pages/RatingWidgetPage.js";
+import TellUsMore from "pages/TellUsMorePage.js";
+import { attachEnvInfo } from "helpers/allureHelper.js";
+import BasePage from "pages/BasePage.js";
 import * as allure from "allure-js-commons";
-import BasePage from "../pages/BasePage.js";
 
 test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
   let controls, ratingWidget, basepage, tellUsMore;
 
   // Setup before each test
   test.beforeEach(async ({ page }) => {
-    await attachEnvInfo(page);
-    controls = new PlaywrightControls(page);
-    ratingWidget = new RatingWidget(page);
-    basepage = new BasePage(page);
-    tellUsMore = new TellUsMore(page);
+    try {
+      await attachEnvInfo();
 
-    await allure.epic("WOGAA Sentiments Widget");
-    await allure.feature("Negative Ratings Feedback Collection");
-    await allure.owner("suraj.suri");
+      // Initialize page objects
+      controls = new PlaywrightControls(page);
+      ratingWidget = new RatingWidget(page);
+      basepage = new BasePage(page);
+      tellUsMore = new TellUsMore(page);
 
-    // Navigate to the page before each test
-    await controls.navigatetoURL();
-    await expect(page).toHaveTitle("WOGAA Documentation");
-    await page.waitForLoadState("networkidle");
+      await allure.epic("WOGAA Sentiments Widget");
+      await allure.feature(
+        "Negative Ratings Feedback Collection (Ratings 1-4)"
+      );
+      await allure.owner("suraj.suri");
+
+      // Navigate and verify page load before each test
+      await controls.navigatetoURL();
+      await expect(page).toHaveTitle("WOGAA Documentation");
+
+      // wait for network to be idle
+      await page.waitForLoadState("networkidle");
+    } catch (error) {
+      console.error("Setup failed in beforeEach:", error);
+
+      // Capture screenshot on setup failure
+      const screenshot = await page.screenshot({ fullPage: true });
+      await allure.attachment(
+        "Setup Failure Screenshot",
+        screenshot,
+        "image/png"
+      );
+      await allure.attachment("Setup Error", error.message, "text/plain");
+
+      throw error;
+    }
   });
 
   // Test for each negative rating (1-4)
@@ -60,7 +81,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
       // Open rating widget and select the rating
       await basepage.clickButtonByRoleAndName("Help us improve popup");
       await ratingWidget.verifyRatingHeading();
-      await ratingWidget.clickRatingButton(rating.toString());
+      await ratingWidget.clickRatingButton(rating);
 
       // Verify "Tell us more" heading
       await ratingWidget.verifyTellUsMoreHeading();
@@ -98,7 +119,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
 
       // Open rating widget and select the rating
       await basepage.clickButtonByRoleAndName("Help us improve popup");
-      await ratingWidget.clickRatingButton(rating.toString());
+      await ratingWidget.clickRatingButton(rating);
       await ratingWidget.verifyTellUsMoreHeading();
 
       // Interact with form elements
@@ -136,7 +157,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
 
       // Open rating widget and select the rating
       await basepage.clickButtonByRoleAndName("Help us improve popup");
-      await ratingWidget.clickRatingButton(rating.toString());
+      await ratingWidget.clickRatingButton(rating);
       await ratingWidget.verifyTellUsMoreHeading();
 
       // Perform combined validation test using page object methods
@@ -173,7 +194,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
       );
 
       await basepage.clickButtonByRoleAndName("Help us improve popup");
-      await ratingWidget.clickRatingButton(rating.toString());
+      await ratingWidget.clickRatingButton(rating);
       await ratingWidget.verifyTellUsMoreHeading();
 
       await tellUsMore.selectOptionalInterests();
@@ -219,25 +240,27 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
           await tellUsMore.interactWithFeedbackFormAndSubmit();
 
           // Close the form to test next rating
-          //await basepage.clickButtonByRoleAndName('Close');
-          await page.waitForTimeout(1000); // Small delay between iterations
+          await page.waitForTimeout(1000);
         }
       );
     }
   });
 
-  // Cleanup after each test
   test.afterEach(async ({ page }, testInfo) => {
-    console.log(
-      `Test "${testInfo.title}" completed with status: ${testInfo.status}`
-    );
-
-    if (testInfo.status === "failed") {
-      // Take screenshot on failure
-      await page.screenshot({
-        path: `allure-results/negative-rating-failure-${Date.now()}.png`,
-        fullPage: true,
-      });
+    try {
+      console.log(
+        `Test "${testInfo.title}" completed with status: ${testInfo.status}`
+      );
+      if (testInfo.status === "failed") {
+        const screenshot = await page.screenshot({ fullPage: true });
+        await allure.attachment(
+          "Screenshot on Failure",
+          screenshot,
+          "image/png"
+        );
+      }
+    } catch (error) {
+      console.error("Error in afterEach cleanup:", error);
     }
   });
 });

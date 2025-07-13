@@ -5,20 +5,19 @@
 // It also specifies the use of headless mode, screenshot capture on failure, and video recording   
 
 import './helpers/loadEnv.js'; // Load environment variables from .env file
-
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   testMatch: '**/*.spec.js',
   testIgnore: '**/node_modules/**',
-  retries: 1,
+  retries: 0,
   workers: 2, // Use 2 CPU cores
   reporter:[['allure-playwright',{ outputFolder: 'allure-results' }]],
   timeout: 30000,
   use: {
     headless: true,
-    screenshot: 'off',
+    screenshot: 'only-on-failure',
     video: 'off',
   },
   projects: [
