@@ -17,10 +17,6 @@ export default class PlaywrightControls {
     await this.page.locator(locatorValue).click();
   }
 
-  async clickButtonByRoleAndName(buttonText) {
-    await this.page.getByRole('button', { name: buttonText, exact: true }).click();
-  }
-
   async clickByText(textValue) {
     await this.page.getByText(textValue).click();
   }

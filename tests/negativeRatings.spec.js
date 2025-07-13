@@ -204,9 +204,7 @@ test.describe("WOGAA Negative Ratings Feedback Flow (Ratings 1-4)", () => {
     });
   }
 
-  test(`should submit the feedback form across all negative ratings`, async ({
-    page,
-  }) => {
+  test(`should submit the feedback form across all negative ratings`, async ({page}) => {
     await allure.description(`
             This test validates that the feedback form structure is consistent across all negative ratings.
             

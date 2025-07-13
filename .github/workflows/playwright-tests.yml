@@ -29,17 +29,21 @@ jobs:
       - name: 🧪 Run Tests with Allure (QA ENV)
         run: npm run test:qa
 
-      - name: 📤 Upload Allure results
-        uses: actions/upload-artifact@v4
+      - name: 📄 Generate Allure HTML Report
         if: ${{ !cancelled() }}
+        run: npm run report
+
+      - name: 📤 Upload Allure results (raw)
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
           retention-days: 30
 
-      - name: 📤 Upload HTML Report (optional)
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload Allure HTML Report
         if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report

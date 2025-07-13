@@ -53,7 +53,6 @@ test.describe('WOGAA Sentiments Rating Widget', () => {
             await allure.tags("homepage", "loading", "smoke", "regression");
 
             await allure.step("Verify page title", async () => {
-                // Test is already complete from beforeEach - title verification
                 await expect(page).toHaveTitle('WOGAA Documentation');
             });
 

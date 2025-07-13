@@ -263,8 +263,6 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
 
   test("should submit feedback form consistently across positive ratings", async () => {
   try {
-    await allure.epic("WOGAA Sentiments Widget");
-    await allure.feature("Positive Ratings Feedback Collection");
     await allure.story("Positive Ratings Form Consistency and Submission");
     await allure.owner("suraj.suri");
     await allure.tags(
@@ -298,7 +296,6 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
         await tellUsMore.verifyPositiveFeedbackFormQuestions();
         await tellUsMore.interactWithPositiveFeedbackFormAndSubmit();
 
-        
         console.log(`Rating ${rating} consistency test completed successfully`);
       }
     });
