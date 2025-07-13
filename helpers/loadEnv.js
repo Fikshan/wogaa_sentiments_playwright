@@ -25,9 +25,9 @@ export const TEST_BROWSER = process.env.BROWSER;
 export const BASE_URL = process.env.URL;
 
 //Get environment variables (loaded from .env file)
-// console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
-// console.log(`Environment Variables:`, {
-//   ENV: process.env.ENV,
-//   BROWSER: process.env.BROWSER,
-//   URL: process.env.URL,
-// });
+console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
+console.log(`Environment Variables:`, {
+  ENV: process.env.ENV,
+  BROWSER: process.env.BROWSER,
+  URL: process.env.URL,
+});
