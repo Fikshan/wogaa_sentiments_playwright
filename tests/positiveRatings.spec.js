@@ -9,10 +9,8 @@ import { attachEnvInfo } from "helpers/allureHelper.js";
 import BasePage from "pages/BasePage.js";
 import * as allure from "allure-js-commons";
 
-// Configuration
 const POSITIVE_RATINGS = [5, 6];
 const TEST_DATA = {
-  LONG_TEXT: "a".repeat(256), // Exceeds 255 char limit
   POPUP_BUTTON_TEXT: "Help us improve popup",
   EXPECTED_TITLE: "WOGAA Documentation",
 };
@@ -287,7 +285,7 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
       5. Verify the thank you message after submission
     `);
 
-    await allure.step("Validate form consistency across all positive ratings", async ({page}) => {
+    await allure.step("Validate form consistency across all positive ratings", async () => {
       for (const rating of POSITIVE_RATINGS) {
         console.log(`Testing consistency for rating ${rating}`);
         
@@ -300,8 +298,6 @@ test.describe("WOGAA Positive Ratings Feedback Flow (Ratings 5-6)", () => {
         await tellUsMore.verifyPositiveFeedbackFormQuestions();
         await tellUsMore.interactWithPositiveFeedbackFormAndSubmit();
 
-         // Close the form to test next rating
-        await page.waitForTimeout(1000);
         
         console.log(`Rating ${rating} consistency test completed successfully`);
       }

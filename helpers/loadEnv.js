@@ -7,7 +7,12 @@ import fs from 'fs';      // Import the filesystem module to check for the exist
                           // If it does not exist, throw an error to inform the user to create it. 
 
 // Get environment from command line (set by cross-env in package.json)
-const environment = process.env.ENV || 'qa';
+const environment = process.env.ENV;
+
+if (!environment) {
+  throw new Error("ENV variable not set. Use cross-env ENV=qa|staging|prod to specify environment.");
+}
+
 // Build the path to the environment-specific .env file
 const envPath = `.env.${environment}`;
 console.log(`Looking for environment file: ${envPath}`);
@@ -25,9 +30,9 @@ export const TEST_BROWSER = process.env.BROWSER;
 export const BASE_URL = process.env.URL;
 
 //Get environment variables (loaded from .env file)
-console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
-console.log(`Environment Variables:`, {
-  ENV: process.env.ENV,
-  BROWSER: process.env.BROWSER,
-  URL: process.env.URL,
-});
+// console.log(`Loaded environment: ${TEST_ENV} from ${envPath}`);
+// console.log(`Environment Variables:`, {
+//   ENV: process.env.ENV,
+//   BROWSER: process.env.BROWSER,
+//   URL: process.env.URL,
+// });
